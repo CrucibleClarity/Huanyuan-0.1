@@ -1,0 +1,67 @@
+{"eid": "P:0", "name": "add_infix", "concept": "D:100", "precedence": 40, "associativity": "left", "grammar": ["arg:0", "+", "arg:1"]}
+{"eid": "P:1", "name": "eq_arith_infix", "concept": "D:102", "precedence": 10, "associativity": "left", "grammar": ["arg:0", "=", "arg:1"]}
+{"eid": "P:2", "name": "eq_rel_infix", "concept": "D:102", "precedence": 10, "associativity": "left", "grammar": ["arg:0", "=", "arg:1"]}
+{"eid": "P:3", "name": "and_infix", "concept": "D:108", "precedence": 20, "associativity": "left", "grammar": ["arg:0", "∧", "arg:1"]}
+{"eid": "P:4", "name": "not_prefix", "concept": "D:110", "precedence": 30, "associativity": "left", "grammar": ["¬", "arg:0"]}
+{"eid": "P:5", "name": "succ_prefix", "concept": "D:200", "precedence": 50, "associativity": "left", "grammar": ["succ", "(", "arg:0", ")"]}
+{"eid": "P:6", "name": "numeral_digits", "concept": "D:141", "grammar": ["[", "arg:0", "arg:1", "]"], "precedence": 0, "associativity": "left"}
+{"eid": "P:7", "name": "fraction_infix", "concept": "D:213", "grammar": ["arg:0", "∕", "arg:1"], "precedence": 35, "associativity": "left"}
+{"eid": "P:8", "name": "radical_prefix", "concept": "D:214", "grammar": ["√", "arg:0"], "precedence": 60, "associativity": "right"}
+{"eid": "P:9", "name": "is_true_atom", "concept": "D:137", "grammar": ["⊤"], "precedence": 0, "associativity": "left"}
+{"eid": "P:10", "name": "mul_infix", "concept": "D:142", "grammar": ["arg:0", "×", "arg:1"], "precedence": 40, "associativity": "left"}
+{"eid": "P:11", "name": "cardinality_postfix", "concept": "D:146", "grammar": ["|", "arg:0", "|"], "precedence": 60, "associativity": "left"}
+{"eid": "P:12", "name": "place_prefix", "concept": "D:147", "grammar": ["arg:0", "位"], "precedence": 0, "associativity": "left"}
+{"eid": "P:13", "name": "numval_atom", "concept": "D:148", "grammar": ["数位值", "arg:0"], "precedence": 0, "associativity": "left"}
+{"eid": "P:14", "name": "digit_add_infix", "concept": "D:151", "grammar": ["arg:0", "⊕", "arg:1"], "precedence": 45, "associativity": "left"}
+{"eid": "P:15", "name": "neg_prefix", "concept": "D:152", "grammar": ["-", "arg:0"], "precedence": 30, "associativity": "right"}
+{"eid": "P:16", "name": "symgroup_atom", "concept": "D:165", "grammar": ["S"], "precedence": 0, "associativity": "left"}
+{"eid": "P:17", "name": "morphism_infix", "concept": "D:177", "grammar": ["arg:0", "↦", "arg:1"], "precedence": 5, "associativity": "right"}
+{"eid": "P:18", "name": "carry_prefix", "concept": "D:180", "grammar": ["↗", "arg:0"], "precedence": 0, "associativity": "left"}
+{"eid": "P:19", "name": "congruence_infix", "concept": "D:181", "grammar": ["arg:0", "≡", "arg:1"], "precedence": 15, "associativity": "left"}
+{"eid": "P:21", "name": "question_atom", "concept": "D:188", "grammar": ["?"], "precedence": 0, "associativity": "left"}
+{"eid": "P:22", "name": "derive_infix", "concept": "D:193", "grammar": ["arg:0", "⇒", "arg:1"], "precedence": 5, "associativity": "right"}
+{"eid": "P:23", "name": "pred_prefix", "concept": "D:196", "grammar": ["pred", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:24", "name": "inverse_postfix", "concept": "D:198", "grammar": ["arg:0", "⁻¹"], "precedence": 60, "associativity": "left"}
+{"eid": "P:25", "name": "grouping_parens", "concept": "D:140", "grammar": ["(", "arg:0", ")"], "precedence": 0, "associativity": "left"}
+{"eid": "P:26", "name": "composition_infix", "concept": "D:231", "grammar": ["arg:0", "∘", "arg:1"], "precedence": 30, "associativity": "right"}
+{"eid": "P:27", "name": "identity_atom", "concept": "D:232", "grammar": ["id"], "precedence": 0, "associativity": "left"}
+{"eid": "P:28", "name": "isomorphism_infix", "concept": "D:233", "grammar": ["arg:0", "≅", "arg:1"], "precedence": 10, "associativity": "left"}
+{"eid": "P:29", "name": "functor_prefix", "concept": "D:234", "grammar": ["F", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:30", "name": "natural_transformation_infix", "concept": "D:235", "grammar": ["arg:0", "⇒", "arg:1"], "precedence": 8, "associativity": "right"}
+{"eid": "P:31", "name": "judgment", "concept": "D:183", "grammar": ["⊤", "arg:0", "arg:1"], "precedence": 0, "associativity": "left"}
+{"eid": "P:32", "name": "subtraction_infix", "concept": "D:101", "grammar": ["arg:0", "-", "arg:1"], "precedence": 40, "associativity": "left"}
+{"eid": "P:33", "name": "division_infix", "concept": "D:156", "grammar": ["arg:0", "÷", "arg:1"], "precedence": 40, "associativity": "left"}
+{"eid": "P:34", "name": "power_infix", "concept": "D:154", "grammar": ["arg:0", "^", "arg:1"], "precedence": 50, "associativity": "right"}
+{"eid": "P:35", "name": "root_infix", "concept": "D:155", "grammar": ["arg:0", "√", "arg:1"], "precedence": 50, "associativity": "right"}
+{"eid": "P:36", "name": "tetration_infix", "concept": "D:170", "grammar": ["arg:0", "↑↑", "arg:1"], "precedence": 50, "associativity": "right"}
+{"eid": "P:37", "name": "not_equals_ptok", "concept": "D:103", "grammar": ["arg:0", "≠", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:38", "name": "greater_than_ptok", "concept": "D:104", "grammar": ["arg:0", ">", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:39", "name": "less_than_ptok", "concept": "D:105", "grammar": ["arg:0", "<", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:40", "name": "greater_equal_ptok", "concept": "D:106", "grammar": ["arg:0", "≥", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:41", "name": "less_equal_ptok", "concept": "D:107", "grammar": ["arg:0", "≤", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:42", "name": "logical_or_ptok", "concept": "D:109", "grammar": ["arg:0", "∨", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:43", "name": "logical_imply_ptok", "concept": "D:111", "grammar": ["arg:0", "→", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:44", "name": "logical_iff_ptok", "concept": "D:112", "grammar": ["arg:0", "↔", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:45", "name": "logical_xor_ptok", "concept": "D:113", "grammar": ["arg:0", "⊕", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:46", "name": "logical_nand_ptok", "concept": "D:114", "grammar": ["arg:0", "↑", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:47", "name": "logical_nor_ptok", "concept": "D:115", "grammar": ["arg:0", "↓", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:48", "name": "logical_xnor_ptok", "concept": "D:116", "grammar": ["arg:0", "⊙", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:49", "name": "reciprocal_ptok", "concept": "D:153", "grammar": ["⁻¹", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:50", "name": "complement_ptok", "concept": "D:157", "grammar": ["∁", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:51", "name": "parallel_sum_ptok", "concept": "D:158", "grammar": ["arg:0", "∥", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:52", "name": "differential_ptok", "concept": "D:160", "grammar": ["arg:0", "d", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:53", "name": "integral_ptok", "concept": "D:161", "grammar": ["arg:0", "∫", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:54", "name": "logarithm_ptok", "concept": "D:162", "grammar": ["arg:0", "log", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:55", "name": "translation_ptok", "concept": "D:163", "grammar": ["T", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:56", "name": "inversion_ptok", "concept": "D:164", "grammar": ["S", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:57", "name": "exp_ptok", "concept": "D:166", "grammar": ["exp", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:58", "name": "iterate_ptok", "concept": "D:167", "grammar": ["arg:0", "iter", "arg:1", "arg:2"], "precedence": 30, "associativity": "left"}
+{"eid": "P:59", "name": "fixpoint_ptok", "concept": "D:168", "grammar": ["fix", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:60", "name": "rotation_ptok", "concept": "D:169", "grammar": ["rot", "arg:0"], "precedence": 50, "associativity": "right"}
+{"eid": "P:61", "name": "super_root_ptok", "concept": "D:171", "grammar": ["arg:0", "srt", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:62", "name": "super_log_ptok", "concept": "D:172", "grammar": ["arg:0", "slog", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:63", "name": "coupled_fixpoint_ptok", "concept": "D:173", "grammar": ["arg:0", "cfp", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:64", "name": "scale_ptok", "concept": "D:174", "grammar": ["arg:0", "scl", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:65", "name": "recursion_ptok", "concept": "D:175", "grammar": ["arg:0", "rec", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:66", "name": "succ_ptok", "concept": "D:179", "grammar": ["arg:0", "succ", "arg:1"], "precedence": 30, "associativity": "left"}
+{"eid": "P:67", "name": "representation_parens", "concept": "D:241", "grammar": ["[", "arg:0", "]"], "precedence": 0, "associativity": "left"}
