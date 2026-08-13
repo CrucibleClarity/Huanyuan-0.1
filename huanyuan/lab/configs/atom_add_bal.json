@@ -1,0 +1,8 @@
+{
+  "name": "atom_add_bal",
+  "seed": 0,
+  "synth": {"kind": "balanced", "op": "addition", "max_depth": 1, "hi": 9,
+            "neg_mode": 1, "sample_mode": "grid"},
+  "judge": {"dim": 64, "layers": 2, "mode": "focused"},
+  "verify": {"ood_hi": 15, "depth_outs": [2]}
+}
