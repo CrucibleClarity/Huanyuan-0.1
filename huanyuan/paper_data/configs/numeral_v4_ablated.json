@@ -1,0 +1,163 @@
+{
+  "name": "numeral_v4_ablated",
+  "seed": 0,
+  "synth": {
+    "samples": [
+      {
+        "kind": "balanced",
+        "op": "addition",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "subtraction",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "multiplication",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "division",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "trace",
+        "op": "addition",
+        "hi": 9,
+        "max_depth": 2
+      },
+      {
+        "kind": "trace",
+        "op": "addition",
+        "hi": 3,
+        "max_depth": 4
+      },
+      {
+        "kind": "numeral_split",
+        "lo": 100,
+        "hi": 999,
+        "min_token_count": 8
+      },
+      {
+        "kind": "fill",
+        "op": "addition",
+        "hi": 9
+      },
+      {
+        "kind": "choose",
+        "op": "addition",
+        "hi": 9,
+        "k": 2
+      },
+      {
+        "kind": "definition",
+        "op": "addition",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "division",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "power",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "root",
+        "hi": 9
+      },
+      {
+        "kind": "balanced",
+        "op": "root",
+        "hi": 5,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "law",
+        "op": "tetration",
+        "hi": 9
+      },
+      {
+        "kind": "balanced",
+        "op": "tetration",
+        "hi": 3,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "law",
+        "op": "multiplication",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "subtraction",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "addition",
+        "hi": 9
+      },
+      {
+        "kind": "law",
+        "op": "neg",
+        "hi": 9
+      }
+    ]
+  },
+  "train": {
+    "epochs": 8,
+    "dim": 64,
+    "layers": 2,
+    "epoch_gen": true
+  },
+  "verify": {
+    "untrained_ops": [
+      "super_root",
+      "super_log",
+      "translation",
+      "inversion",
+      "differential",
+      "integral",
+      "logarithm"
+    ],
+    "ood": [
+      {
+        "kind": "extrap",
+        "op": "addition",
+        "ndigits": 2000
+      },
+      {
+        "kind": "extrap",
+        "op": "multiplication",
+        "ndigits": 2000
+      },
+      {
+        "kind": "extrap",
+        "op": "neg",
+        "ndigits": 2000
+      },
+      {
+        "kind": "extrap",
+        "op": "subtraction",
+        "ndigits": 2000
+      }
+    ]
+  }
+}
