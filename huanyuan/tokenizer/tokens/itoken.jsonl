@@ -1,6 +1,0 @@
-{"eid": "I:1", "name": "inum_20000", "dtype": "num", "value": 20000, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
-{"eid": "I:2", "name": "inum_50000", "dtype": "num", "value": 50000, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
-{"eid": "I:3", "name": "inum_40000", "dtype": "num", "value": 40000, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
-{"eid": "I:4", "name": "inum_80000", "dtype": "num", "value": 80000, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
-{"eid": "I:30", "name": "inum_12345678901234567890", "dtype": "num", "value": 12345678901234567890, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
-{"eid": "I:31", "name": "inum_98765432109876543210", "dtype": "num", "value": 98765432109876543210, "interface": true, "definition": {"form": "interface", "semantics": "constant", "references": []}}
