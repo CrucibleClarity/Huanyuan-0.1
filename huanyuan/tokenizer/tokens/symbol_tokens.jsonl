@@ -1,0 +1,80 @@
+{"eid": "S:300", "name": "symbol_numeral_0", "glyph": "0", "maps_to": {"D:127": 1, "D:117": 1}}
+{"eid": "S:301", "name": "symbol_numeral_1", "glyph": "1", "maps_to": {"D:128": 1, "D:118": 1}}
+{"eid": "S:302", "name": "symbol_numeral_2", "glyph": "2", "maps_to": {"D:129": 1, "D:119": 1}}
+{"eid": "S:303", "name": "symbol_numeral_3", "glyph": "3", "maps_to": {"D:130": 1, "D:120": 1}}
+{"eid": "S:304", "name": "symbol_numeral_4", "glyph": "4", "maps_to": {"D:131": 1, "D:121": 1}}
+{"eid": "S:305", "name": "symbol_numeral_5", "glyph": "5", "maps_to": {"D:132": 1, "D:122": 1}}
+{"eid": "S:306", "name": "symbol_numeral_6", "glyph": "6", "maps_to": {"D:133": 1, "D:123": 1}}
+{"eid": "S:307", "name": "symbol_numeral_7", "glyph": "7", "maps_to": {"D:134": 1, "D:124": 1}}
+{"eid": "S:308", "name": "symbol_numeral_8", "glyph": "8", "maps_to": {"D:135": 1, "D:125": 1}}
+{"eid": "S:309", "name": "symbol_numeral_9", "glyph": "9", "maps_to": {"D:136": 1, "D:126": 1}}
+{"eid": "S:310", "name": "symbol_plus", "glyph": "+", "maps_to": {"D:100": 1, "D:199": 1}}
+{"eid": "S:311", "name": "symbol_minus", "glyph": "-", "maps_to": {"D:101": 1, "D:200": 1, "D:152": 1}}
+{"eid": "S:312", "name": "symbol_eq", "glyph": "=", "maps_to": {"D:102": 1}}
+{"eid": "S:313", "name": "symbol_neq", "glyph": "≠", "maps_to": {"D:103": 1}}
+{"eid": "S:314", "name": "symbol_gt", "glyph": ">", "maps_to": {"D:104": 1}}
+{"eid": "S:315", "name": "symbol_lt", "glyph": "<", "maps_to": {"D:105": 1}}
+{"eid": "S:316", "name": "symbol_ge", "glyph": "≥", "maps_to": {"D:106": 1}}
+{"eid": "S:317", "name": "symbol_le", "glyph": "≤", "maps_to": {"D:107": 1}}
+{"eid": "S:318", "name": "symbol_and", "glyph": "∧", "maps_to": {"D:108": 1}}
+{"eid": "S:319", "name": "symbol_or", "glyph": "∨", "maps_to": {"D:109": 1}}
+{"eid": "S:320", "name": "symbol_not", "glyph": "¬", "maps_to": {"D:110": 1}}
+{"eid": "S:321", "name": "symbol_imply", "glyph": "→", "maps_to": {"D:111": 1}}
+{"eid": "S:322", "name": "symbol_iff", "glyph": "↔", "maps_to": {"D:112": 1}}
+{"eid": "S:323", "name": "symbol_xor", "glyph": "⊕", "maps_to": {"D:113": 1}}
+{"eid": "S:324", "name": "symbol_nand", "glyph": "↑", "maps_to": {"D:114": 1}}
+{"eid": "S:325", "name": "symbol_nor", "glyph": "↓", "maps_to": {"D:115": 1}}
+{"eid": "S:326", "name": "symbol_xnor", "glyph": "⊙", "maps_to": {"D:116": 1}}
+{"eid": "S:327", "name": "symbol_reciprocal", "glyph": "⁻¹", "maps_to": {"D:153": 1, "D:198": 1}}
+{"eid": "S:328", "name": "symbol_power", "glyph": "^", "maps_to": {"D:154": 1}}
+{"eid": "S:329", "name": "symbol_root", "glyph": "√", "maps_to": {"D:155": 1}}
+{"eid": "S:330", "name": "symbol_division", "glyph": "÷", "maps_to": {"D:156": 1}}
+{"eid": "S:331", "name": "symbol_complement", "glyph": "∁", "maps_to": {"D:157": 1}}
+{"eid": "S:332", "name": "symbol_parallel_sum", "glyph": "∥", "maps_to": {"D:158": 1}}
+{"eid": "S:333", "name": "symbol_d", "glyph": "d", "maps_to": {"D:160": 1}}
+{"eid": "S:334", "name": "symbol_integral", "glyph": "∫", "maps_to": {"D:161": 1}}
+{"eid": "S:335", "name": "symbol_i", "glyph": "i", "maps_to": {"D:159": 1}}
+{"eid": "S:336", "name": "symbol_log", "glyph": "log", "maps_to": {"D:162": 1}}
+{"eid": "S:337", "name": "symbol_T", "glyph": "T", "maps_to": {"D:163": 1}}
+{"eid": "S:338", "name": "symbol_S", "glyph": "S", "maps_to": {"D:164": 1}}
+{"eid": "S:339", "name": "symbol_exp", "glyph": "exp", "maps_to": {"D:166": 1}}
+{"eid": "S:340", "name": "symbol_iterate", "glyph": "iter", "maps_to": {"D:167": 1}}
+{"eid": "S:341", "name": "symbol_fixpoint", "glyph": "fix", "maps_to": {"D:168": 1}}
+{"eid": "S:342", "name": "symbol_rotation", "glyph": "rot", "maps_to": {"D:169": 1}}
+{"eid": "S:343", "name": "symbol_tetration", "glyph": "↑↑", "maps_to": {"D:170": 1}}
+{"eid": "S:344", "name": "symbol_super_root", "glyph": "srt", "maps_to": {"D:171": 1}}
+{"eid": "S:345", "name": "symbol_super_log", "glyph": "slog", "maps_to": {"D:172": 1}}
+{"eid": "S:346", "name": "symbol_coupled_fixpoint", "glyph": "cfp", "maps_to": {"D:173": 1}}
+{"eid": "S:347", "name": "symbol_scale", "glyph": "scl", "maps_to": {"D:174": 1}}
+{"eid": "S:348", "name": "symbol_recursion", "glyph": "rec", "maps_to": {"D:175": 1}}
+{"eid": "S:349", "name": "symbol_basepoint", "dtype": "bool", "glyph": "◆", "maps_to": {"B:0": 1}}
+{"eid": "S:350", "name": "symbol_cardinality_one", "dtype": "bool", "glyph": "1", "maps_to": {"D:176": 1}}
+{"eid": "S:351", "name": "symbol_gap", "dtype": "bool", "glyph": "□", "maps_to": {"D:184": 1}}
+{"eid": "S:352", "name": "symbol_fraction", "glyph": "∕", "maps_to": {"D:213": 1}}
+{"eid": "S:353", "name": "symbol_imaginary", "glyph": "i", "maps_to": {"D:215": 1}}
+{"eid": "S:354", "name": "symbol_is_true", "glyph": "⊤", "maps_to": {"D:137": 1}}
+{"eid": "S:355", "name": "symbol_times", "glyph": "×", "maps_to": {"D:142": 1}}
+{"eid": "S:356", "name": "symbol_cardinality", "glyph": "|·|", "maps_to": {"D:146": 1}}
+{"eid": "S:357", "name": "symbol_place", "glyph": "位", "maps_to": {"D:147": 1}}
+{"eid": "S:358", "name": "symbol_numval", "glyph": "数位值", "maps_to": {"D:148": 1}}
+{"eid": "S:359", "name": "symbol_digit_add", "glyph": "⊕", "maps_to": {"D:151": 1}}
+{"eid": "S:360", "name": "symbol_symgroup", "glyph": "S", "maps_to": {"D:165": 1}}
+{"eid": "S:361", "name": "symbol_morphism", "glyph": "↦", "maps_to": {"D:177": 1}}
+{"eid": "S:362", "name": "symbol_succ", "glyph": "succ", "maps_to": {"D:179": 1}}
+{"eid": "S:363", "name": "symbol_carry", "glyph": "↗", "maps_to": {"D:180": 1}}
+{"eid": "S:364", "name": "symbol_congruence", "glyph": "≡", "maps_to": {"D:181": 1}}
+{"eid": "S:365", "name": "symbol_judge", "glyph": "⊢", "maps_to": {"D:183": 1}}
+{"eid": "S:366", "name": "symbol_question", "glyph": "?", "maps_to": {"D:188": 1}}
+{"eid": "S:367", "name": "symbol_derive", "glyph": "⇒", "maps_to": {"D:193": 1}}
+{"eid": "S:368", "name": "symbol_pred", "glyph": "pred", "maps_to": {"D:196": 1}}
+{"eid": "S:369", "name": "symbol_lparen", "glyph": "(", "maps_to": {"D:227": 1, "D:140": 1}}
+{"eid": "S:370", "name": "symbol_rparen", "glyph": ")", "maps_to": {"D:228": 1, "D:140": 1}}
+{"eid": "S:375", "name": "symbol_composition", "glyph": "∘", "maps_to": {"D:231": 1}}
+{"eid": "S:371", "name": "symbol_identity", "glyph": "id", "maps_to": {"D:232": 1}}
+{"eid": "S:372", "name": "symbol_isomorphism", "glyph": "≅", "maps_to": {"D:233": 1}}
+{"eid": "S:373", "name": "symbol_functor", "glyph": "F", "maps_to": {"D:234": 1}}
+{"eid": "S:374", "name": "symbol_natural_transformation", "glyph": "⇒", "maps_to": {"D:235": 1}}
+{"eid": "S:376", "name": "symbol_radical", "glyph": "√", "maps_to": {"D:214": 1}}
+{"eid": "S:377", "name": "symbol_vertical", "glyph": "|", "maps_to": {"D:146": 1}}
+{"eid": "S:378", "name": "symbol_lbracket", "glyph": "[", "maps_to": {"D:242": 1}}
+{"eid": "S:379", "name": "symbol_rbracket", "glyph": "]", "maps_to": {"D:243": 1}}
