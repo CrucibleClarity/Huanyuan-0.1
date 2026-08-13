@@ -1,0 +1,883 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{论文草稿 P1 --- Generalization as Formalized
+Induction}\label{ux8bbaux6587ux8349ux7a3f-p1-generalization-as-formalized-induction}
+
+\begin{quote}
+状态: 理论章节骨架 v0.1 \textbar{} 日期: 2026-08-11 定位:
+理论+实证双核论文。理论 = 泛化的归纳形式化 (六条命题); 系统 = 六层 token
+体系作为原则的强制实施点; 证据 = 每条命题配支持实验 + 反例实验。 纪律:
+每条命题标注证据强度 (已验证 / 部分验证 /
+待验证)。写论文前所有''待验证''必须补实验。 英文命题为论文正文语言,
+中文为工作语言。
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{0. 论文定位}\label{ux8bbaux6587ux5b9aux4f4d}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{标题方向}: \emph{Generalization as Formalized Induction:
+  Definition-Driven Learning in Native Token Grammars}
+\item
+  \textbf{核心主张 (英文摘要草稿)}:
+\end{itemize}
+
+\begin{quote}
+We propose that systematic generalization is not an emergent or a priori
+faculty of neural networks, but the formalization of induction: to
+generalize on a token A, A must be precisely defined, and every token in
+A's definition chain must be sufficiently trained. Sufficient training
+is a relational property, not a quantitative one --- it requires
+simultaneous training of parallel concepts under the same superordinate
+concept, wrong-answer training, and collocation training, so that
+relations between concepts become learnable signals. Training stability
+requires a purely native token grammar; modal separation requires that
+input, logic, and output grammars be designed independently, separating
+signifier from signified at the token level; intuition and reasoning are
+separated into a compiled fast path and an unfolded slow path. Sample
+sufficiency then follows: generalization needs no large sample volume
+--- only precise definitions, a small set of contrastive samples, and
+few config-dependent epochs for the model to compile its weights (3
+simple / 8 full suite).
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{贡献清单 (每条 = 可证伪命题)}:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    认识论根基: 泛化 = 归纳的形式化, 非先验/涌现 (命题 G0)
+  \item
+    定义完备性: 泛化 ⟺ 定义精确 ∧ 定义链充分训练 (命题 G1)
+  \item
+    训练充分性 = 关系充分性: 平行概念 + 错题 + 搭配 (命题 G2)
+  \item
+    原生语法稳定性 (命题 G3)
+  \item
+    模态分离: 输入/逻辑/输出语法独立, 能指/所指 token 层分离 (命题 G4)
+  \item
+    直觉/推理分离: 快路径 vs 慢路径 (命题 G5)
+  \item
+    样本充分性: 充分展示 ≠ 尽可能多展示 (命题 G6)
+  \end{enumerate}
+\item
+  \textbf{目标 venue}: NeurIPS/ICML/ICLR main (理论+实证); 备选 TMLR。
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. 理论章节骨架}\label{ux7406ux8bbaux7ae0ux8282ux9aa8ux67b6}
+
+\subsubsection{1.0 认识论根基 --- 泛化是归纳的形式化
+(G0)}\label{ux8ba4ux8bc6ux8bbaux6839ux57fa-ux6cdbux5316ux662fux5f52ux7eb3ux7684ux5f62ux5f0fux5316-g0}
+
+\textbf{命题 G0 (英文)}: \emph{There is no a priori or transcendental
+generation of conceptual ability: generalization is the formalization of
+induction. Any ability to generalize on a token must be produced --- not
+assumed.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  起点: ``泛化''在所有既有形式系统中是预设, 不是被解释对象。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    λ-calculus 预设 primitive (variable/abstraction/application),
+    不回答''概念从哪来'';
+  \item
+    Church 编码可以\emph{实现}一切概念, 但实现 ≠ 结构暴露,
+    编码抹平了泛化所需的结构边界;
+  \item
+    所有''已有数学语言 → tokenize → Transformer''路线
+    (λ-application/β-reduction 作训练目标) 同样预设 primitive。
+  \item
+    结论: 预设 primitive = 跳过''概念形成''阶段 =
+    无法回答''泛化如何产生''。这是本理论要进入的空位。
+  \end{itemize}
+\item
+  反先验论证 (经验可证伪): 若概念能力是先验/涌现的, 则\textbf{定义模糊的
+  token 也应能泛化} --- 该预测被实验否定 (见证据 E0)。
+\item
+  正面主张: 概念能力由两条链产生 --- (a) 归纳结果被形式化为精确定义
+  (定义形态: explicit/inductive/recursive/axiomatic/implicit); (b)
+  定义链上的每个 token 被充分训练 (命题 G1-G2 定义''充分'')。
+\item
+  推论: 泛化不是黑箱属性, 而是\textbf{可工程化的} --- 可设计, 可验证,
+  可复现。
+\end{enumerate}
+
+\textbf{可证伪预测}: 定义模糊的 token 泛化失败; 定义精确 +
+定义链充分训练的 token 泛化成功。
+
+\textbf{证据 (E0)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E0.1
+\textbar{} value\_zero 定义不准确 (零次迭代) ⇒ 0 相关样本 (0+n, 0×n)
+无法学到恒等律; 定义修正后学会 \textbar{} 已验证 \textbar{} token skill
+§7.8 \textbar{} \textbar{} E0.2 \textbar{} vocab 153 时需 40 epochs =
+定义模糊证据; 定义准确后少样本学会 \textbar{} 已验证 \textbar{} token
+skill §7.6 \textbar{} \textbar{} E0.3 \textbar{} 0-acc token
+剥离后曲线即真实学习曲线 --- 学到的 epoch 3 即 1.0, 0-acc token
+是定义/样本没学会, 非 epoch/层数问题 \textbar{} 已验证 \textbar{} token
+skill §7.8 \textbar{}
+
+\subsubsection{1.1 定义完备性
+(G1)}\label{ux5b9aux4e49ux5b8cux5907ux6027-g1}
+
+\textbf{命题 G1 (英文)}: \emph{To generalize on token A, (i) A's
+definition must be precise and complete, and (ii) every token required
+by A's definition chain must itself be sufficiently trained. Both
+conditions are necessary; neither is sufficient alone.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  泛化 = 沿定义链的归纳传播: 模型对 A 的泛化表现为在未见组合中正确使用
+  A, 这要求 A 的语义从定义链底层逐层''编译''进权重。
+\item
+  必要性 (i): 定义是归纳的形式化产物; 定义缺失/模糊 ⇒
+  归纳无对象。value\_zero 案例: 零次迭代定义不准确 ⇒ 0 相关样本 (0+n,
+  0×n) 无法学到恒等律, 定义修正后学会 (E0.1); vocab 153 定义模糊 ⇒ 需 40
+  epochs (E0.2)。
+\item
+  必要性 (ii): 定义引用链上的 token 未充分训练 ⇒
+  上层定义的编译缺底座。value\_three 案例: 有 arrow
+  链+定义但合成器不覆盖 ⇒ 样本量=1 学不会 (E1.1)。
+\item
+  充分性 (i)∧(ii): 定义精确 + 定义链 token 充分训练 ⇒ 泛化以极低成本出现
+  (2000 样本 / 2 层 / 3-8 epochs 全泛化, G6; exp41 置换保持 0.987, exp80
+  跳步零衰减)。``定义精确''经 Lean 附录形式化 (无孤儿引用/环证书)。
+\item
+  位置覆盖是独立自由度: 定义链完备性与\emph{位置}覆盖是两个独立自由度
+  --- 未覆盖位置 (序列中某语法槽位从未出现) 即使定义完备也不泛化;
+  需位置覆盖训练 (方法层, 非命题层; 见 exp10 教训 §7.2)。
+\end{enumerate}
+
+\textbf{可证伪预测}: P1a --- 定义修正前后对比 (value\_zero 形式化复现):
+修正前不泛化, 修正后泛化; P1b --- 定义链某 token 从训练集剔除 (其余不变)
+⇒ 上层 token 泛化崩; P1c --- (i)∧(ii) 恢复 ⇒ 泛化恢复。
+
+\textbf{证据 (E1)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E1.1
+\textbar{} value\_three 样本量=1 无法学会 (合成器未覆盖) →
+合成器补覆盖后学会 (定义链 token 未训练 ⇒ 编译缺底座) \textbar{} 已验证
+\textbar{} token skill §7.9 \textbar{} \textbar{} E1.2 \textbar{}
+per\_token\_gen 逐 token 泛化视图: 泛化短板精确落在未充分训练/未覆盖
+token 上 \textbar{} 已验证 \textbar{} token skill §7.7 \textbar{}
+\textbar{} E1.3 \textbar{} 定义修正前后: value\_zero 定义不准 ⇒ 0
+相关学不到; 修正后学会 \textbar{} 已验证 \textbar{} token skill §7.8
+\textbar{} \textbar{} E1.4 \textbar{} vocab 153 定义模糊 ⇒ 40 epochs;
+定义精确后少样本学会 \textbar{} 已验证 \textbar{} token skill §7.6
+\textbar{} \textbar{} P1b/c \textbar{} 定义链剔除 token 的 ablation
+\textbar{} \textbf{待验证} \textbar{} 需实验 \textbar{}
+
+\begin{quote}
+\textbf{方法论教训 (2026-08-11, exp10 撤回记录)}: 0-IMPLY 系列
+(EXP-10/11, 零监督语义涌现) 因评估口径 bug 全部撤回 --- 原''裸真值表
+0.75/深嵌套 0.938/免疫屏蔽''为末尾真值口径 + 语法错位假象; 修正后 imply
+0.000, 根因 = 位置错位 + 样本量不足。教训: 判定口径 (全序列重建)
+是唯一可信口径; 评估 branch 必须走 run\_exp 官方路径。不构成本文证据,
+但构成方法纪律 (§7.2)。
+\end{quote}
+
+\subsubsection{1.2 训练充分性 = 关系充分性
+(G2)}\label{ux8badux7ec3ux5145ux5206ux6027-ux5173ux7cfbux5145ux5206ux6027-g2}
+
+\textbf{命题 G2 (英文)}: \emph{Sufficient training is a relational
+property, not a quantitative one. It consists of (i) simultaneous
+training of parallel concepts under the same superordinate concept ---
+making relations between concepts explicit training signals; (ii)
+wrong-answer training (negative examples, including
+structure-identical-result-wrong negatives); (iii) collocation training
+--- every participating token's adjacent collocations covered above a
+threshold.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  平行概念: 同一上位概念下的平行 token 同时训练 ⇒
+  概念间的差异维度成为可学习信号 (模型从对比中学''差哪个自由度'',
+  而非孤立记忆每个概念)。T7 逻辑门 8/9 学会 = 对称箭头 + 互译 + law +
+  math 命题并行 (E2.1); all\_dir\_iter 系列 = 方向×迭代平行 (E2.2)。
+\item
+  错题训练: 正例只定义''是什么'', 负例定义''不是什么''; 判定能力
+  (judgment) 由正负对比产生。判定型负例 (同构结果错) 是必要的。
+\item
+  搭配训练: token 的相邻搭配对覆盖 ≥3 --- 模型未见够的上下文 =
+  泛化崩候选; 带崩元凶 (crash\_culprit) 精确指向搭配不足的 token。
+\item
+  平行概念移出的实证 (exp20): 删某门族全部监督 ⇒ 该门判定崩 (0.000),
+  \textbf{其他门从 1.0 降到 0.833} --- 门族互训链断裂 (De Morgan
+  对偶/inverse 箭头依赖互译), 平行概念同训是学习信号 (E2.8)。
+\item
+  推论: ``充分''是可判定标准 (搭配阈值/负例覆盖/平行集完备),
+  不是''样本越多越好'' --- 这直接导出 G6。
+\end{enumerate}
+
+\textbf{可证伪预测}: P2a --- 平行概念移出训练 (其余不变) ⇒ 目标 token
+泛化崩 (exp20 已验); P2b --- 负例移除 ⇒ 判假能力崩 (判真保留); P2c ---
+低频搭配 token 泛化崩, 重分配样本到低频搭配后恢复。
+
+\textbf{证据 (E2)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E2.1
+\textbar{} 逻辑门 8/9 学会 (对称箭头+互译+law+math命题 平行训练)
+\textbar{} 已验证 \textbar{} token skill §7.6 T7 \textbar{} \textbar{}
+E2.2 \textbar{} all\_dir\_iter 系列 (方向迭代平行) \textbar{} 已验证
+\textbar{} lab/configs/all\_dir\_iter*.json \textbar{} \textbar{} E2.3
+\textbar{} neg 0.000→0.958: 减法 hi 9→15 负样本覆盖提升 \textbar{}
+已验证 \textbar{} token skill §7.6 \textbar{} \textbar{} E2.4 \textbar{}
+搭配对 ≥3 标准; crash\_culprit 定位带崩 token \textbar{} 已验证
+\textbar{} token skill §7.8 \textbar{} \textbar{} E2.5 \textbar{}
+\textbf{平行概念移出 (exp20)}: 删 iff/xor 全部监督 ⇒ 整体 0.798, 被删门
+0.000, \textbf{其他门 1.0→0.833}; 删 and/or ⇒ 0.814 --- 门族互训链断裂,
+平行同训是学习信号 \textbar{} 已验证 \textbar{} exp20\_results.md
+\textbar{} \textbar{} P2a \textbar{} 平行概念移出 (exp20 已验证); P2b
+负例移除 / P2c 搭配重分配 \textbar{} 部分 \textbar{} 需实验 \textbar{}
+
+\subsubsection{1.3 原生语法稳定性
+(G3)}\label{ux539fux751fux8bedux6cd5ux7a33ux5b9aux6027-g3}
+
+\textbf{命题 G3 (英文)}: \emph{Training stability requires a purely
+native token grammar: the syntax itself must be made of tokens
+(G-layer), arranged by data-driven assembly --- no externally imposed
+pseudo-syntax, no hardcoded arrangement knowledge.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  语法是训练数据的生成器: 排列方法写死在哪, 训练信号的分布就从哪偏。
+\item
+  原生语法 = 排列知识 (gtoken 槽位角色:
+  arg/fn/args/binder/body)、呈现知识 (P 层符号/优先级/结合性)、归约知识
+  (reduction) 全部数据化, 代码只读取执行 → 语法可定义、可验证、可扩展
+  (SKI 组合子亦为 gtoken)。
+\item
+  稳定性来自一致性: 语法数据与 token 数据同源同生命周期 (maintain
+  单一入口), 消除''代码-数据漂移''这一训练不稳定的来源。
+\item
+  推论: 原生语法使''语法本身''成为可训练/可验证对象 --- 这是模态分离
+  (G4) 的实现前提。
+\end{enumerate}
+
+\textbf{可证伪预测}: P3a --- 组装逻辑硬编码 (绕过 gtoken 数据) ⇒
+新概念接入时序列/判定崩; P3b --- 语法数据与 token 数据不同步 ⇒
+训练不稳定。
+
+\textbf{证据 (E3)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E3.1
+\textbar{} 样本序列零手写: assemble\_seq/judge\_seq 沿 gtoken/ptoken
+组装; 手写序列被判定为''缺 token''信号 \textbar{} 已验证 \textbar{}
+token skill §7.7 \textbar{} \textbar{} E3.2 \textbar{} 零硬编码架构:
+组装器/求值器/呈现器全数据驱动 (check\_notation 三件套校验) \textbar{}
+已验证 \textbar{} AGENTS.md / skill §7.7 \textbar{} \textbar{} E3.3
+\textbar{} \textbf{排列方法无关, 位置覆盖决定 (EXP-61g + notation
+复现)}: prefix vs infix 单独对比差异小 (0.836 vs 0.853, Δ0.017; 复现
+0.677 相同) --- 语法格式本身不决定学习; 但位置覆盖 (imply 判定位置)
+有增益 (0.969 vs 0.950); 双位置混合提升训练 (0.948 vs 0.852) \textbar{}
+已验证 \textbar{} exp61g / notation\_results.md \textbar{} \textbar{}
+E3.4 \textbar{} \textbf{位置 ≠ token (EXP-61h canonical 化)}: 同义双
+token 严格等量训练, 模型 canonical 化到单 token (c0→1.000, c1→0.000) ---
+位置是语法角色 (结构, 多位置有益), token 是标识 (冗余被直觉编译压缩)
+\textbar{} 已验证 \textbar{} exp61h\_results.md \textbar{} \textbar{}
+P3a/b \textbar{} 硬编码注入 / 数据不同步 ablation \textbar{}
+\textbf{待验证} \textbar{} 需实验 \textbar{}
+
+\subsubsection{1.4 模态分离 (G4)}\label{ux6a21ux6001ux5206ux79bb-g4}
+
+\textbf{命题 G4 (英文)}: \emph{Mirroring the structure of human
+cognition --- perception, meaning, and expression/execution --- model
+input, logic, and output must be assigned independent grammars.
+Signifier and signified must be separated at the token level (S-layer vs
+C-layer), so the model distinguishes concepts from their expressions
+from their notations from the very token layer.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  人类认知结构: 感知 (输入模态) → 意思 (概念/逻辑) → 表达-执行
+  (输出模态)。三者的语法必须分离 --- 混合则通道混淆。
+\item
+  符号学对应: 能指 (signifier, S 层 glyph) 与所指 (signified, C 层概念)
+  分离; 歧义保留 (一 glyph 多候选 \href{D:260}{=}/\href{D:261}{=}),
+  上下文收敛 --- 歧义不是缺陷而是信息。
+\item
+  表示层 (P) 独立: 具体记法 (符号/优先级/结合性) 是数据, 一概念多呈现;
+  表示法可扩展 (fraction/radical/imaginary\_unit), 数符序列保持 numeral
+  (digit 排列), 禁''直接按 value''。
+\item
+  包裹分离: 不同语义包裹必须不同符号 --- 操作嵌套 ( ) vs 表示嵌套 {[}
+  {]} 同符号 = 模型分不清运算分组 vs 数表示结构 (训练崩) ---
+  模态混合的直接反例 (E4.1)。
+\item
+  推论: 模态分离是''从 token 层面清晰区分不同概念与逻辑''的强制实施点。
+\end{enumerate}
+
+\textbf{可证伪预测}: P4a --- 同一符号承担两种模态 (操作/表示) ⇒ 训练崩;
+P4b --- 符号置换 (digit/operator 全随机重命名, 保持结构) ⇒ 训练行为不变
+(学的是关系非符号语义); P4c --- 表示法符号冲突 ⇒ 解析/判定崩。
+
+\textbf{证据 (E4)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E4.1
+\textbar{} 操作嵌套 ( ) vs 表示嵌套 {[} {]} 同符号 ⇒ 模型分不清
+(训练崩); 分离后恢复 \textbar{} 已验证 \textbar{} token skill §7.8
+\textbar{} \textbar{} E4.2 \textbar{} numeral\_v4\_shuffle /
+numeral\_focused\_shuffle 系列 (shuffle 对照) \textbar{} 部分验证
+\textbar{} lab/configs/numeral\_v4\_shuffle.json \textbar{} \textbar{}
+E4.3 \textbar{} numeral\_v4\_wrong-symmetry 系列 (对称性破坏对照)
+\textbar{} 部分验证 \textbar{}
+lab/configs/numeral\_v4\_wrong-symmetry.json \textbar{} \textbar{} E4.4
+\textbar{} sign 体系: sign\_pos/sign\_neg 3 ctoken + 4 arrow (正负对偶)
+--- 符号模态独立注册 \textbar{} 已验证 \textbar{} token skill §7.8
+\textbar{} \textbar{} E4.5 \textbar{} \textbf{符号置换 (exp41,
+最强弹药)}: 训练时随机置换 10 个 digit 概念 token (26080 处, 保持结构),
+测试原 token 判定 0.996→0.987 (差 0.009 ≤0.02) --- 置换不变性成立,
+学的是结构关系非数字符号语义 \textbar{} 已验证 \textbar{}
+exp41\_results.md \textbar{} \textbar{} P4b \textbar{}
+\textbf{符号置换实验 (digit+operator 随机重命名)} --- 论文最强弹药
+\textbar{} \textbf{待验证} \textbar{} 需实验 \textbar{}
+
+\subsubsection{1.5 直觉/推理分离
+(G5)}\label{ux76f4ux89c9ux63a8ux7406ux5206ux79bb-g5}
+
+\textbf{命题 G5 (英文, 发明人定稿 2026-08-11)}: \emph{Intuition is the
+reasoning fast path. It is hard to obtain --- acquisition requires
+sufficient training (definition-complete and relation-sufficient,
+config-dependent epochs). Once formed, however, it generalizes easily by
+skipping steps: intuition jumps from input to output, bypassing the
+intermediate construction steps. Fast execution is its nature as a
+reasoning path; step-skipping generalization is its mechanism for
+outward generalization. Intuition is hard to obtain, but easy to
+generalize with.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{直觉 = 推理快路径 (概念定稿)}: 训练把构造编译进权重;
+  直觉通道作为\emph{推理的快路径}直接给出结果,
+  不再逐构造步骤展开。快不是独立属性, 而是''推理快路径''的本质。
+\item
+  \textbf{难以获得}: 获得需要充分训练 --- 定义完备 (G1) + 关系充分 (G2),
+  收敛 epoch 配置相关 (exp53: 完整逻辑+算术套件 8 epochs; 简单配置
+  3)。``容易对外泛化'' ≠ ``容易获得'' --- 两轴解耦 (EXP-80 专项验证)。
+\item
+  \textbf{容易跳步泛化}: 泛化时直觉跳过构造中间步骤直达结果 ---
+  这是对外泛化容易的机制。对比: 构造通道逐步展开 (每一步显式),
+  直觉通道一步到位; 两者语义等价 (exp50: 三通道 2000 位进位链 1.000;
+  exp41: 置换 0.987 --- 跳步后仍保持结构正确)。
+\item
+  推理 (慢路径/构造通道): 展开执行 (definition-driven, token\_iterator
+  逐位迭代) --- 语义完整, 成本高 (序列长度 = 计算深度)。直觉
+  (推理快路径): 编译权重, 跳步直达。
+\item
+  编译机制: 新算符已可由组合路径执行 ⇒ 从慢路径自动生成监督 ⇒
+  建立语义等价直觉通道 ⇒ 验证等价 (fallback 保留) --- 语义等价路径编译
+  (semantic-path compilation)。
+\item
+  推论: 训练 (编译) 与执行 (推理) 是两件事;
+  直觉的跳步泛化能力由''定义完备 + 关系充分''决定, 与收敛 epoch 数无关
+  --- 连接 G1/G6。
+\end{enumerate}
+
+\textbf{可证伪预测}: P5a --- 直觉通道与构造通道输出一致 (语义等价); P5b
+--- 直觉通道成本 \textless{} 构造通道成本 (steps/tokens/latency); P5c
+--- 新算符无需扩大语义闭包即可获得直觉; P5d --- 跳步泛化与获得成本解耦
+(EXP-80: 固定获得, 外推距离增大衰减平缓 ---
+直觉难以获得但容易跳步泛化)。
+
+\textbf{证据 (E5)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E5.1
+\textbar{} 三通道一致 (exp50): 构造=形式完全一致 (2/9/20/2000 位), 直觉
+1.000 (含 2000 位进位链) --- 跳步泛化保持语义等价 \textbar{} 已验证
+\textbar{} exp50\_51\_results.md \textbar{} \textbar{} E5.2 \textbar{}
+token\_iterator (纯 token 构造通道: 逐位 digit\_add 查表 + 进位) vs 直觉
+(模型前向跳步) \textbar{} 已验证 \textbar{}
+tokenizer/eval/token\_iterator.py \textbar{} \textbar{} E5.3 \textbar{}
+推理快路径成本 (exp51): 2000 位 构造 0.62s vs 直觉 0.086s (7×) / 形式
+0.069s (9×) \textbar{} 已验证 \textbar{} exp50\_51\_results.md
+\textbar{} \textbar{} E5.4 \textbar{} \textbf{难以获得 vs 跳步泛化解耦}:
+exp53 (epoch 1/2/3/5/8 → 0.001/0.214/0.244/0.781/0.996, 获得需 8) +
+exp50/41 (收敛后 2000 位/置换仍强) --- 难以获得, 容易跳步泛化 \textbar{}
+已验证 \textbar{} exp53\_results.md \textbar{} \textbar{} E5.5
+\textbar{} 少样本语义等价路径编译 (构造→直觉, 语义等价, 闭包不变)
+\textbar{} 已验证 \textbar{} 文档 其他AI意见.md \textbar{} \textbar{}
+E5.6 \textbar{} \textbf{跳步泛化零衰减 (EXP-80)}: 2000 位 / 进制 60 /
+100\% digit 匿名 / 位宽×进制联合 全部 1.000 --- 直觉难以获得 (8 epochs,
+exp53) 但容易跳步泛化, 两轴解耦 SUPPORT \textbar{} 已验证 \textbar{}
+exp80\_results.md \textbar{} \textbar{} E5.7 \textbar{}
+\textbf{跳步的机器形态 (EXP-90, 校准版)}: 20 位加法, 结构路径 82
+token/0.410ms vs 直觉路径 5 token/0.186ms (num 原子 itoken, 16× token
+缩短, 2.2× 快), 语义一致 = oracle。\textbf{诚实口径}: itoken 不在模型
+vocab (pad 0), 测量的是序列长度对前向成本的影响 (下限); 非''模型学会
+itoken'', 若学会则 O(1) 更优 \textbar{} 已验证 \textbar{}
+exp90\_results.md \textbar{} \textbar{} P5a/b/c \textbar{} 语义等价 /
+成本对比 / 闭包不变性 \textbar{} 部分验证 (a/b 已做 exp50/51; c 待)
+\textbar{} 需实验 \textbar{} \textbar{} P5d \textbar{}
+跳步泛化与获得解耦 (EXP-80): 固定获得, 跳步泛化距离增大零衰减 ---
+SUPPORT \textbar{} 已验证 \textbar{} exp80\_results.md \textbar{}
+
+\subsubsection{1.6 样本充分性
+(G6)}\label{ux6837ux672cux5145ux5206ux6027-g6}
+
+\textbf{命题 G6 (英文)}: \emph{Showing sufficiently is not showing as
+much as possible. Generalization requires no large sample volume ---
+only precise definitions (G1), relational training sufficiency (G2), and
+few config-dependent epochs (3 simple / 8 full suite) for the model to
+compile its weights. The hard structural search is done by
+representation design; SGD only preserves the structure.}
+
+\textbf{论证链}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  结构搜索前置: 概念自由度的分解 (方向×层数×被迭代算符、数域、对偶)
+  由表示设计完成 --- 模型无需搜索结构, 只需保持结构。
+\item
+  数据前置: 归纳的形式化产物是定义 + 关系, 不是样本枚举 ---
+  样本只是定义的实例化。
+\item
+  编译性: 收敛 epoch 配置相关 (简单 3 / 完整 8, exp53) = 权重编译
+  (参数少, 结构清晰); 需要更多 epoch 或更多样本 =
+  定义模糊/训练不充分的信号 (诊断信号: num\_concepts 变化需匹配训练量)。
+\item
+  推论: 样本量是可判定的 --- 由''定义完备 ∧ 关系充分''决定,
+  与问题规模无关 (任意位宽/进制/阶数)。
+\end{enumerate}
+
+\textbf{可证伪预测}: P6a --- 固定''定义完备+关系充分'',
+样本量在宽范围内变化 ⇒ 泛化不变 (平坦性); P6b --- 同量样本下, 定义模糊 ⇒
+需要 10× 以上样本仍不收敛; P6c --- 未参与平行/搭配的 token 样本加量 ⇒
+泛化不恢复 (量不补关系)。
+
+\textbf{证据 (E6)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E6.1
+\textbar{} 2000 样本 / \textless1MB / 2 层全泛化收敛 (简单配置,
+arith\_multi\_type) \textbar{} 已验证 \textbar{} docs 其他AI意见.md
+\textbar{} \textbar{} E6.2 \textbar{} vocab 153 需 40 epochs (定义模糊)
+vs 定义准确后少样本学会 \textbar{} 已验证 \textbar{} token skill §7.6
+\textbar{} \textbar{} E6.3 \textbar{} 0-acc token 需大训练量 =
+定义模糊信号 \textbar{} 已验证 \textbar{} token skill §7.8 \textbar{}
+\textbar{} P6a/b/c \textbar{} 样本量平坦性 / 定义模糊对照 / 加量不恢复
+\textbar{} \textbf{待验证} \textbar{} 需实验 (确定性裁剪) \textbar{}
+
+\begin{quote}
+注: exp60 (随机裁剪) 破坏搭配覆盖, 测法无效, 不作为 G6 证据 (方法层记录,
+见 §3.1)。exp53 (收敛 epoch 配置相关) 支持 G5''直觉难以获得'', 见 E5.4。
+\end{quote}
+
+\subsubsection{1.7 构造 ↔ 直觉 ↔ 形式: 三相等价性 (数学哲学定位, G5
+的理论延伸)}\label{ux6784ux9020-ux76f4ux89c9-ux5f62ux5f0f-ux4e09ux76f8ux7b49ux4ef7ux6027-ux6570ux5b66ux54f2ux5b66ux5b9aux4f4d-g5-ux7684ux7406ux8bbaux5ef6ux4f38}
+
+\begin{quote}
+数学部分写作纪律 (发明人确立): \textbf{数学结构本身不是贡献} --- 表示法
+(de Bruijn/OpenMath/MathML)、组合子逻辑、结构主义分解
+(Bourbaki)、范畴论组织全部已有先例, ``只是给 λ
+加表示法''的表述必被打穿。数学部分的唯一新 claim 是\textbf{三相等价性}:
+构造 (直觉主义)、直觉 (结构定位)、形式 (符号重写) 三个数学哲学立场,
+在同一个神经系统的三条执行路径中实现了\textbf{互可编译的语义等价} ---
+这是此前无人证明过的。
+\end{quote}
+
+\textbf{命题 R (英文)}: \emph{A single system exhibits three execution
+channels for the same mathematical object --- the constructive channel
+(unfolded definition-driven expansion), the intuitive channel (compiled
+weight execution), and the formal channel (definition-driven rewriting).
+The three channels are pairwise semantically equivalent: construction
+can be compiled into intuition, and both agree with formal rewriting.
+The three-way equivalence is the neural implementation of the
+Computational Trinitarianism thesis (Curry-Howard: programs = proofs =
+types), with equivalence holding between execution channels of one
+system rather than between logics.}
+
+\textbf{三流派 ↔ 三通道对照}:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+哲学立场
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对象是什么
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+访问方式
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+本项目通道
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+泛化角色
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+直觉主义 (Brouwer) & 心智构造, 存在=可构造 & 逐步构造/展开 &
+\textbf{构造通道}: 推理慢路径 (定义链展开执行, oracle/token\_iterator) &
+提供泛化\textbf{充分条件} (无构造定义 ⇒ 泛化崩) \\
+结构主义 (Bourbaki) & 结构网络中的位置 (坐标) & 直接定位 &
+\textbf{直觉通道}: 推理快路径 (编译权重前向, 跳步直达) &
+提供泛化\textbf{跳步容易度} (难以获得, 容易跳步泛化) \\
+形式主义 (Hilbert) & 无意义符号游戏 & 重写 & \textbf{形式通道}:
+定义驱动重写 (eval engine / SKI reduce / grammar execute) &
+提供泛化的\textbf{可验证形式} (重写一致性) \\
+\end{longtable}
+
+\textbf{论证链 (R)}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  三通道是同一系统的三种执行方式: 构造通道沿定义链展开;
+  直觉通道由训练把构造编译进权重, 作为\textbf{推理快路径}跳步直达
+  (难以获得, 容易跳步泛化); 形式通道按定义重写规则驱动 (引擎零硬编码,
+  真值表/归约规则读定义)。
+\item
+  构造是泛化的必要前提 (直觉主义立场): 没有定义链样本, 泛化必崩 ---
+  零样本曲线实证 (R2)。
+\item
+  编译完成后直觉通道 O(1) 直接定位 (结构主义速度):
+  新对象无需重新展开构造 (R1)。
+\item
+  三通道语义等价: 对同一输入, 构造通道输出 = 直觉通道输出 = 形式通道输出
+  --- ``构造可编译为直觉, 直觉可展开为构造, 两者都与重写一致''。类似
+  Curry-Howard 命题↔证明↔程序, 但这里是\textbf{三执行通道↔编译}
+  (神经实现版 Computational Trinitarianism)。
+\item
+  认识论立场 (反柏拉图主义): 直觉不是天赋, 是归纳训练后压缩的构造;
+  构造主体 = 可工程化的系统 (非 Brouwer 的个体心智) --- 与 G0 直接衔接。
+\end{enumerate}
+
+\textbf{可证伪预测}: R1 --- 三通道 (构造/直觉/形式)
+对同一输入输出全序列一致 (机器实现 Sem\_构造=Sem\_直觉=Sem\_形式); R2
+--- 符号置换后直觉通道泛化保持 (直觉包裹结构非符号); R3 --- 训练 =
+构造编译: 少样本 + 短 epoch 完成直觉形成 (编译深度单调, epoch 3 即
+1.0)。
+
+\textbf{证据 (E7)}: \textbar{} \# \textbar{} 证据 \textbar{} 强度
+\textbar{} 归档 \textbar{}
+\textbar---\textbar---\textbar---\textbar---\textbar{} \textbar{} E7.1
+\textbar{} 零样本曲线: 1-20 样本全 0.0 (无构造 ⇒ 无泛化) \textbar{}
+已验证 \textbar{} 结构直觉二象性研究.md §3 \textbar{} \textbar{} E7.2
+\textbar{} 三通道一致性 (exp50): 构造=形式 (2/9/20/2000 位), 直觉 1.000
+--- Sem\_构造=Sem\_直觉=Sem\_形式 直接验证 \textbar{} 已验证 \textbar{}
+exp50\_51\_results.md \textbar{} \textbar{} E7.3 \textbar{} 2000
+位进位链 (999\ldots9+1): 三通道全对 --- 真实状态传播 (weights≈program)
+\textbar{} 已验证 \textbar{} exp50\_51\_results.md \textbar{} \textbar{}
+E7.4 \textbar{} 符号置换 (exp41): 26080 处 digit 重命名后判定
+0.996→0.987 --- 直觉包裹结构非符号 \textbar{} 已验证 \textbar{}
+exp41\_results.md \textbar{} \textbar{} E7.5 \textbar{} epoch 3 即 1.0
+(简单配置) / 完整配置需 8 epochs (exp53) --- 编译深度单调 \textbar{}
+已验证 \textbar{} exp53\_results.md \textbar{} \textbar{} E7.6
+\textbar{} \textbf{跳步泛化解耦 (EXP-80)}: 2000 位 / 进制 60 / 100\%
+匿名 / 联合全 1.000, 获得 8 epochs --- 难以获得, 容易跳步泛化 \textbar{}
+已验证 \textbar{} exp80\_results.md \textbar{} \textbar{} E7.7
+\textbar{} \textbf{直觉编译 = canonical 化 (EXP-61h)}: 同义双 token
+严格等量训练, 模型压缩冗余到单 token (c0→1.000, c1→0.000) --- 直觉路径
+(编译权重) 天然消除同义冗余, 支持''直觉 = 编译, 编译 = 消冗余''
+\textbar{} 已验证 \textbar{} exp61h\_results.md \textbar{}
+
+\textbf{Lean 形式化纪律 (附录, 非贡献)}: 三通道等价的数学表述
+(编译正确性: 直觉通道 = 构造通道的编译; 重写一致性:
+形式通道与定义链展开一致) + 定义链完备性 (无孤儿引用、引用环证书判定) 用
+Lean 形式化验证 ---
+作用是\textbf{证明''定义精确''与''通道等价''这一前提成立},
+不是新数学结果; 走既有 Lean 纪律 (先审计 mathlib、不建独立库、claims
+ledger 同步)。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2. 系统实现映射 (六层 token 体系 ↔
+命题)}\label{ux7cfbux7edfux5b9eux73b0ux6620ux5c04-ux516dux5c42-token-ux4f53ux7cfb-ux547dux9898}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+层
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+实体
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+强制实施点 (命题)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+B 公设基 & baseloop.jsonl (axiomatic 终点) & G1 定义链溯源终点; G0
+归纳形式化的落点 \\
+C 概念 & derive.jsonl (5 类定义形态) & G1 定义完备性; G2 平行概念注册 \\
+S 符号 & symbol\_tokens.jsonl (glyph/maps\_to 多对多) & G4
+能指/所指分离; 歧义保留 \\
+G 语法 & gtokens.jsonl (槽位角色/归约) & G3 原生语法; G5
+排列方法数据化 \\
+P 呈现 & presentation.jsonl (符号/优先级/结合性) & G4 模态分离;
+记法可扩展 \\
+A 箭头 & arrow\_tokens.jsonl (source/target/concept) & G2
+概念间关系作为训练信号; 数域提升/迭代链/对偶 \\
+\end{longtable}
+
+外加: 通用求值引擎 (G5 慢路径定义驱动) / 样本合成器 (G2 三要素生成) /
+run\_exp 归档 (可复现性) / CTE 缓存 (工程, 非理论)。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. 实验矩阵
+(论文证据组织)}\label{ux5b9eux9a8cux77e9ux9635-ux8bbaux6587ux8bc1ux636eux7ec4ux7ec7}
+
+\subsubsection{3.1 已完成的实验
+(论文主体证据)}\label{ux5df2ux5b8cux6210ux7684ux5b9eux9a8c-ux8bbaux6587ux4e3bux4f53ux8bc1ux636e}
+
+\begin{itemize}
+\tightlist
+\item
+  exp02\_supervised\_s1/s2: 判定口径 1.000 (完整算术+9门套件, 多种子)
+\item
+  exp10\_imply\_supervised: 判定 0.996 (imply 判定监督版 ---
+  定义+位置+监督三要素)
+\item
+  exp20a/b: 平行概念移出 (0.798/0.814, G2)
+\item
+  exp41: 符号置换 (0.996→0.987, G4)
+\item
+  exp50: 三通道一致性 (构造=形式=直觉, 2000 位进位链 1.000, R)
+\item
+  exp51: 快慢成本 (2000 位 7×, G5)
+\item
+  exp53: 收敛曲线 (1/2/3/5/8 → 0.001/0.214/0.244/0.781/0.996, SUPPORT:
+  直觉难以获得, G5)
+\item
+  exp60: 样本量随机裁剪 (破搭配, 测法无效, 方法层记录)
+\item
+  exp80: 跳步泛化零衰减 (2000 位/进制60/100\%匿名/联合 全 1.000, G5)
+\item
+  exp90: 跳步机器形态 (82→5 token, 序列长度效应下限, G5)
+\item
+  arith\_multi\_type / numeral\_v4 系列 / all\_dir\_iter / trace:
+  早期基线
+\end{itemize}
+
+\subsubsection{3.2
+必须补的实验}\label{ux5fc5ux987bux8865ux7684ux5b9eux9a8c}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+命题 & 待补 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+G1 & 定义链 token 剔除 ablation (P1b) \\
+G2 & 负例移除 (P2b) / 搭配重分配 (P2c) \\
+G3 & 硬编码注入 / 数据漂移 (P3a/b) \\
+G4 & 表示法符号冲突 (P4c) \\
+G5 & 闭包不变性 (P5c); 阶数越阶维度补全 (exp80) \\
+G6 & 确定性裁剪 (保持搭配覆盖) 样本量平坦性重测 \\
+C1 & 普通 representation baseline (纠缠编码对照) \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4. Related Work 站位 (占位,
+检索后填充)}\label{related-work-ux7ad9ux4f4d-ux5360ux4f4d-ux68c0ux7d22ux540eux586bux5145}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{λ-calculus 及形式系统家族} --- 作为被解释对象: 预设 primitive,
+  不回答概念形成; Church 编码抹平结构 (仅 Related Work, 非参照系)。
+\item
+  \textbf{反天赋论/反涌现叙事} --- Fodor (language of thought 天赋概念),
+  Chomsky (普遍语法): 本理论的对立面; 经验反证 E0。
+\item
+  \textbf{系统化泛化} --- Lake et al.~2017; Keysers et al.~2020 (COGS);
+  SCAN; compositionality literature: 记录现象, 不提供''为什么'' ---
+  本理论提供发生学解释。
+\item
+  \textbf{符号学} --- Saussure (能指/所指, 任意性, 差异原则): G4
+  的理论祖先; 贡献 = 把符号学结构工程化进神经训练。
+\item
+  \textbf{双系统认知} --- Kahneman (System 1/2): G5 的对应; 贡献 =
+  编译机制 (快路径如何产生)。
+\item
+  \textbf{表示学习} --- disentanglement/compositional structured
+  representations: 已有工作研究''表示长什么样'',
+  本理论回答''泛化如何从定义+训练中产生''。
+\item
+  \textbf{程序→神经编译} --- Learning to Compile Programs to Neural
+  Networks (ICML 2024) 等: G5 相关, 区别 = 同一模型慢路径自蒸馏,
+  不扩语义闭包。
+\item
+  \textbf{数学 (§1.7 三相等价性) --- 特殊站位}: 数学结构本身全部已有先例
+  (de Bruijn 记号 1972 / OpenMath-MathML 表示法标准 / 组合子逻辑 /
+  Bourbaki 结构主义 / 范畴论组织 / Mizar-Lean-Isabelle 形式化数学),
+  \textbf{明确不 claim}; 只 claim 三相等价性 ---
+  构造/直觉/形式三通道在同一权重的同一系统中互可编译等价, 即
+  Computational Trinitarianism (Curry-Howard: programs=proofs=types)
+  的神经实现版 (等价发生在同一系统的执行通道间, 而非逻辑间)。写作口径:
+  不写''我们发明了新数学结构'',
+  写''我们证明了三哲学立场在神经实现中的统一''。相关对照: Brouwer
+  直觉主义 / Bourbaki 结构主义 / Hilbert 形式主义; 现代载体:
+  构造性类型论 (Martin-Löf, Lean/Coq 直觉主义内核)、Gärdenfors
+  conceptual spaces (坐标而非分类 → 结构主义路线)。
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. 待办
+(写作前必须完成)}\label{ux5f85ux529e-ux5199ux4f5cux524dux5fc5ux987bux5b8cux6210}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  P1b 实验 (定义链剔除 token 的 ablation)
+\item[$\square$]
+  P2b/P2c 实验 (负例移除 / 搭配重分配)
+\item[$\square$]
+  P3a/P3b 实验 (原生语法 ablation)
+\item[$\square$]
+  P5c (闭包不变性) + exp80 阶数越阶补全
+\item[$\square$]
+  G6 确定性裁剪 (保持搭配覆盖 ≥3) 样本量平坦性重测
+\item[$\square$]
+  普通 representation baseline (纠缠编码对照, C1)
+\item[$\square$]
+  Lean 附录: 六原则数学表述 + 定义链完备性 (无孤儿引用/环证书) 形式化
+  --- 纪律验证, 非贡献点
+\item[$\square$]
+  每项证据的归档复核 (run\_dir 定位 + metrics.json/views.json 数值提取)
+\item[$\square$]
+  实验归档统一整理为论文级数据表 (位宽×进制×阶数×样本量×种子 矩阵)
+\item[$\square$]
+  文献检索: §4 站位填充 (Related Work 精确引用)
+\item[$\square$]
+  claims ledger 同步 (每命题 status/novelty\_status/证据)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{结论 (统一框架, 2026-08-11
+定稿)}\label{ux7ed3ux8bba-ux7edfux4e00ux6846ux67b6-2026-08-11-ux5b9aux7a3f}
+
+当我们在统一的形式化注意力语法结构下, 最终不可避免地、必然地通过神经网络
+清晰、直观、可解释地观察到直觉与构造的边界时, 我们就可以有充足的信心:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{用统一的注意力形式语言指导逻辑构造} (形式→构造: 注意力定位
+  token 间关系; 形式 ↔ 注意力 attention);
+\item
+  \textbf{用精确的合成 CoT 逻辑构造获得 flashing 直觉} (构造→直觉:
+  合成思维链 编译为快速推理; 构造 ↔ 合成思维链 synthetic CoT);
+\item
+  \textbf{用蒸馏的直觉上下文穷举注意力形式} (直觉→形式:
+  蒸馏快路径搜索组合, 再表达于统一形式; 直觉 ↔ 蒸馏的闪念 distilled
+  intuition / flashing).
+\end{itemize}
+
+形式、构造、直觉在统一的框架下相互适配,
+组成再不分彼此的教学、训练、推理的 反馈迭代管线 --- 这也许是我们通往 ASI
+的众多路径中, 相对较快的一条捷径。
+
+\end{document}
