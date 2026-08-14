@@ -1,0 +1,7 @@
+{
+  "name": "logic_and",
+  "seed": 0,
+  "synth": {"kind": "logic", "op": "logical_and"},
+  "judge": {"dim": 64, "layers": 2, "mode": "focused"},
+  "verify": {}
+}
