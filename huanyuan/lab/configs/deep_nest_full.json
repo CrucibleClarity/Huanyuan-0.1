@@ -1,0 +1,129 @@
+{
+  "name": "deep_nest_full",
+  "seed": 0,
+  "synth": {
+    "samples": [
+      {
+        "kind": "balanced",
+        "op": "addition",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "subtraction",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "multiplication",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "division",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "addition",
+        "hi": 3,
+        "max_depth": 4,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "multiplication",
+        "hi": 3,
+        "max_depth": 4,
+        "neg_mode": 1
+      },
+      {
+        "kind": "arrow",
+        "concept": "cardinality_one"
+      },
+      {
+        "kind": "arrow",
+        "concept": "coercion"
+      },
+      {
+        "kind": "arrow",
+        "concept": "succ"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_eight"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_five"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_four"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_nine"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_one"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_seven"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_six"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_three"
+      },
+      {
+        "kind": "arrow",
+        "concept": "value_two"
+      }
+    ]
+  },
+  "train": {
+    "epochs": 25,
+    "dim": 64,
+    "layers": 2
+  },
+  "verify": {
+    "ood": [
+      {
+        "kind": "deep_nest",
+        "op": "addition",
+        "hi": 3,
+        "depths": [
+          6,
+          11
+        ],
+        "n": 100,
+        "neg_mode": 1
+      },
+      {
+        "kind": "deep_nest",
+        "op": "multiplication",
+        "hi": 3,
+        "depths": [
+          6,
+          11
+        ],
+        "n": 100,
+        "neg_mode": 1
+      }
+    ]
+  }
+}
