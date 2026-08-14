@@ -1,0 +1,4 @@
+[project]
+name = "llm_research_v5"
+version = "0.1.0"
+requires-python = ">=3.10"
