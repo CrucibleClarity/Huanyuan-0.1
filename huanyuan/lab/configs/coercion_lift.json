@@ -1,0 +1,11 @@
+{
+  "name": "coercion_lift",
+  "seed": 0,
+  "synth": {
+    "samples": [
+      {"kind": "coercion", "hi": 30}
+    ]
+  },
+  "train": {"epochs": 20, "dim": 64, "layers": 2},
+  "verify": {"ood": [{"kind": "coercion", "hi": 100}]}
+}
