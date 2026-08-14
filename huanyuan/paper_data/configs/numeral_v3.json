@@ -1,0 +1,89 @@
+{
+  "name": "numeral_v3",
+  "seed": 0,
+  "synth": {
+    "samples": [
+      {
+        "kind": "balanced",
+        "op": "addition",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "subtraction",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "multiplication",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "balanced",
+        "op": "division",
+        "hi": 9,
+        "max_depth": 2,
+        "neg_mode": 1
+      },
+      {
+        "kind": "trace",
+        "op": "addition",
+        "hi": 9,
+        "max_depth": 2
+      },
+      {
+        "kind": "trace",
+        "op": "addition",
+        "hi": 3,
+        "max_depth": 4
+      },
+      {
+        "kind": "numeral_split",
+        "lo": 100,
+        "hi": 999,
+        "min_token_count": 8
+      },
+      {
+        "kind": "fill",
+        "op": "addition",
+        "hi": 9
+      },
+      {
+        "kind": "choose",
+        "op": "addition",
+        "hi": 9,
+        "k": 2
+      },
+      {
+        "kind": "definition",
+        "op": "addition",
+        "hi": 9
+      },
+      {
+        "kind": "arrow",
+        "concept": "succ"
+      },
+      {
+        "kind": "arrow",
+        "concept": "cardinality_one"
+      },
+      {
+        "kind": "arrow",
+        "concept": "coercion"
+      }
+    ]
+  },
+  "train": {
+    "epochs": 8,
+    "dim": 64,
+    "layers": 2,
+    "epoch_gen": true
+  },
+  "verify": {}
+}
