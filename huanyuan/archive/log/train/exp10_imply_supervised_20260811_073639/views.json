@@ -1,0 +1,678 @@
+{
+  "overall_acc": 0.9974141646315184,
+  "ood_acc": 0.9998966283617318,
+  "gen_acc": 0.9999477105955763,
+  "gen_success": 0.0,
+  "depth_gen": {},
+  "curve": {
+    "losses": [
+      5.885305881500244,
+      5.069862365722656,
+      4.459531784057617,
+      4.331453323364258,
+      4.009132385253906,
+      3.683666944503784,
+      3.9576141834259033,
+      3.770820140838623,
+      4.836015701293945,
+      4.863469123840332,
+      4.008945941925049,
+      2.7279415130615234,
+      3.719744920730591,
+      2.238781213760376,
+      2.099914073944092,
+      1.9784737825393677,
+      2.123304843902588,
+      1.9998799562454224,
+      1.8830413818359375,
+      2.374619960784912,
+      2.243695020675659,
+      3.0392136573791504,
+      3.1589465141296387,
+      2.237684965133667,
+      1.5132170915603638,
+      2.0056607723236084,
+      1.249162197113037,
+      1.1253658533096313,
+      1.089105248451233,
+      1.1236205101013184,
+      1.0717755556106567,
+      1.0401127338409424,
+      1.5590120553970337,
+      1.407460331916809,
+      2.230895757675171,
+      2.331674337387085,
+      1.5642688274383545,
+      0.9528070688247681,
+      1.3733795881271362,
+      0.7242971062660217,
+      0.6363745331764221,
+      0.5989750027656555,
+      0.6240283846855164,
+      0.6030550003051758,
+      0.5994710326194763,
+      1.0940462350845337,
+      0.9402151107788086,
+      1.6808321475982666,
+      1.7776724100112915,
+      1.147939682006836,
+      0.6306353807449341,
+      0.9885722994804382,
+      0.4484485983848572,
+      0.3840959370136261,
+      0.3619214594364166,
+      0.3730437159538269,
+      0.36305156350135803,
+      0.3659505546092987,
+      0.820292055606842,
+      0.6575764417648315,
+      1.2841689586639404,
+      1.3696668148040771,
+      0.8588204383850098,
+      0.431611031293869,
+      0.6864129304885864,
+      0.293994665145874,
+      0.2498548924922943,
+      0.23858599364757538,
+      0.24481216073036194,
+      0.23930831253528595,
+      0.24371066689491272,
+      0.6402534246444702,
+      0.47716376185417175,
+      0.9712247252464294,
+      1.0459001064300537,
+      0.647010326385498,
+      0.30734190344810486,
+      0.48462891578674316,
+      0.20586058497428894,
+      0.17596113681793213,
+      0.168909952044487,
+      0.17371341586112976,
+      0.17006085813045502,
+      0.17565859854221344,
+      0.526620626449585,
+      0.3541075885295868,
+      0.7285534739494324,
+      0.7920363545417786,
+      0.4829808175563812,
+      0.22548756003379822,
+      0.35456860065460205,
+      0.1542685329914093,
+      0.130405992269516,
+      0.12893643975257874,
+      0.130825936794281,
+      0.1284697949886322,
+      0.1337698996067047,
+      0.4443510174751282,
+      0.26998329162597656,
+      0.5524834990501404,
+      0.5988825559616089,
+      0.36493515968322754,
+      0.17067843675613403,
+      0.25955402851104736
+    ]
+  },
+  "per_token_train": {
+    "is_true": {
+      "correct": 787,
+      "total": 787,
+      "acc": 1.0
+    },
+    "bracket": {
+      "correct": 1560,
+      "total": 1560,
+      "acc": 1.0
+    },
+    "sign_pos": {
+      "correct": 2222,
+      "total": 2222,
+      "acc": 1.0
+    },
+    "base": {
+      "correct": 2228,
+      "total": 2228,
+      "acc": 1.0
+    },
+    "value_one": {
+      "correct": 2250,
+      "total": 2250,
+      "acc": 1.0
+    },
+    "value_zero": {
+      "correct": 2242,
+      "total": 2242,
+      "acc": 1.0
+    },
+    "cardinality": {
+      "correct": 2228,
+      "total": 2228,
+      "acc": 1.0
+    },
+    "digit_zero": {
+      "correct": 879,
+      "total": 882,
+      "acc": 0.9965986394557823
+    },
+    "addition": {
+      "correct": 709,
+      "total": 709,
+      "acc": 1.0
+    },
+    "equals_arith": {
+      "correct": 868,
+      "total": 868,
+      "acc": 1.0
+    },
+    "truth_true": {
+      "correct": 448,
+      "total": 448,
+      "acc": 1.0
+    },
+    "digit_seven": {
+      "correct": 162,
+      "total": 163,
+      "acc": 0.9938650306748467
+    },
+    "digit_one": {
+      "correct": 678,
+      "total": 681,
+      "acc": 0.9955947136563876
+    },
+    "digit_four": {
+      "correct": 314,
+      "total": 317,
+      "acc": 0.9905362776025236
+    },
+    "digit_five": {
+      "correct": 210,
+      "total": 213,
+      "acc": 0.9859154929577465
+    },
+    "digit_two": {
+      "correct": 535,
+      "total": 535,
+      "acc": 1.0
+    },
+    "digit_three": {
+      "correct": 330,
+      "total": 331,
+      "acc": 0.9969788519637462
+    },
+    "digit_eight": {
+      "correct": 172,
+      "total": 173,
+      "acc": 0.9942196531791907
+    },
+    "digit_six": {
+      "correct": 195,
+      "total": 196,
+      "acc": 0.9948979591836735
+    },
+    "digit_nine": {
+      "correct": 235,
+      "total": 235,
+      "acc": 1.0
+    },
+    "truth_false": {
+      "correct": 570,
+      "total": 570,
+      "acc": 1.0
+    },
+    "subtraction": {
+      "correct": 77,
+      "total": 77,
+      "acc": 1.0
+    },
+    "sign_neg": {
+      "correct": 23,
+      "total": 23,
+      "acc": 1.0
+    },
+    "multiplication": {
+      "correct": 81,
+      "total": 81,
+      "acc": 1.0
+    },
+    "division": {
+      "correct": 31,
+      "total": 31,
+      "acc": 1.0
+    },
+    "question": {
+      "correct": 16,
+      "total": 16,
+      "acc": 1.0
+    },
+    "candidate": {
+      "correct": 2,
+      "total": 8,
+      "acc": 0.25
+    },
+    "coercion": {
+      "correct": 0,
+      "total": 4,
+      "acc": 0.0
+    },
+    "natural_domain": {
+      "correct": 0,
+      "total": 2,
+      "acc": 0.0
+    },
+    "integer_domain": {
+      "correct": 0,
+      "total": 2,
+      "acc": 0.0
+    },
+    "rational_domain": {
+      "correct": 0,
+      "total": 2,
+      "acc": 0.0
+    },
+    "complex_domain": {
+      "correct": 0,
+      "total": 2,
+      "acc": 0.0
+    },
+    "cardinality_one": {
+      "correct": 0,
+      "total": 2,
+      "acc": 0.0
+    },
+    "value_three": {
+      "correct": 0,
+      "total": 1,
+      "acc": 0.0
+    },
+    "value_two": {
+      "correct": 0,
+      "total": 1,
+      "acc": 0.0
+    },
+    "basepoint": {
+      "correct": 0,
+      "total": 4,
+      "acc": 0.0
+    },
+    "value_five": {
+      "correct": 0,
+      "total": 1,
+      "acc": 0.0
+    },
+    "value_four": {
+      "correct": 0,
+      "total": 1,
+      "acc": 0.0
+    },
+    "value_seven": {
+      "correct": 0,
+      "total": 3,
+      "acc": 0.0
+    },
+    "value_eight": {
+      "correct": 0,
+      "total": 1,
+      "acc": 0.0
+    },
+    "reciprocal": {
+      "correct": 0,
+      "total": 5,
+      "acc": 0.0
+    },
+    "power": {
+      "correct": 58,
+      "total": 58,
+      "acc": 1.0
+    },
+    "root": {
+      "correct": 32,
+      "total": 32,
+      "acc": 1.0
+    },
+    "tetration": {
+      "correct": 32,
+      "total": 32,
+      "acc": 1.0
+    },
+    "succ": {
+      "correct": 28,
+      "total": 28,
+      "acc": 1.0
+    },
+    "pred": {
+      "correct": 16,
+      "total": 16,
+      "acc": 1.0
+    },
+    "neg": {
+      "correct": 21,
+      "total": 21,
+      "acc": 1.0
+    },
+    "super_root": {
+      "correct": 18,
+      "total": 18,
+      "acc": 1.0
+    },
+    "translation": {
+      "correct": 17,
+      "total": 17,
+      "acc": 1.0
+    },
+    "inversion": {
+      "correct": 9,
+      "total": 10,
+      "acc": 0.9
+    },
+    "differential": {
+      "correct": 15,
+      "total": 15,
+      "acc": 1.0
+    },
+    "logarithm": {
+      "correct": 39,
+      "total": 39,
+      "acc": 1.0
+    },
+    "integral": {
+      "correct": 14,
+      "total": 14,
+      "acc": 1.0
+    },
+    "iterate": {
+      "correct": 24,
+      "total": 24,
+      "acc": 1.0
+    },
+    "super_log": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "inverse": {
+      "correct": 137,
+      "total": 137,
+      "acc": 1.0
+    },
+    "logical_not": {
+      "correct": 30,
+      "total": 30,
+      "acc": 1.0
+    },
+    "imply_direction": {
+      "correct": 10,
+      "total": 10,
+      "acc": 1.0
+    },
+    "less_than": {
+      "correct": 9,
+      "total": 9,
+      "acc": 1.0
+    },
+    "logical_nor": {
+      "correct": 22,
+      "total": 22,
+      "acc": 1.0
+    },
+    "greater_than": {
+      "correct": 9,
+      "total": 9,
+      "acc": 1.0
+    },
+    "logical_iff": {
+      "correct": 21,
+      "total": 21,
+      "acc": 1.0
+    },
+    "iff_direction": {
+      "correct": 9,
+      "total": 9,
+      "acc": 1.0
+    },
+    "logical_and": {
+      "correct": 23,
+      "total": 23,
+      "acc": 1.0
+    },
+    "logical_xnor": {
+      "correct": 21,
+      "total": 21,
+      "acc": 1.0
+    },
+    "increase": {
+      "correct": 11,
+      "total": 11,
+      "acc": 1.0
+    },
+    "logical_xor": {
+      "correct": 22,
+      "total": 22,
+      "acc": 1.0
+    },
+    "logical_or": {
+      "correct": 42,
+      "total": 42,
+      "acc": 1.0
+    },
+    "decrease": {
+      "correct": 14,
+      "total": 14,
+      "acc": 1.0
+    },
+    "logical_nand": {
+      "correct": 23,
+      "total": 23,
+      "acc": 1.0
+    },
+    "logical_imply": {
+      "correct": 39,
+      "total": 39,
+      "acc": 1.0
+    }
+  },
+  "per_token_gen": {
+    "is_true": {
+      "correct": 1558,
+      "total": 1558,
+      "acc": 1.0
+    },
+    "bracket": {
+      "correct": 3340,
+      "total": 3340,
+      "acc": 1.0
+    },
+    "sign_pos": {
+      "correct": 4796,
+      "total": 4796,
+      "acc": 1.0
+    },
+    "base": {
+      "correct": 5010,
+      "total": 5010,
+      "acc": 1.0
+    },
+    "value_one": {
+      "correct": 5010,
+      "total": 5010,
+      "acc": 1.0
+    },
+    "value_zero": {
+      "correct": 5010,
+      "total": 5010,
+      "acc": 1.0
+    },
+    "cardinality": {
+      "correct": 5010,
+      "total": 5010,
+      "acc": 1.0
+    },
+    "digit_six": {
+      "correct": 1375,
+      "total": 1375,
+      "acc": 1.0
+    },
+    "digit_four": {
+      "correct": 2300,
+      "total": 2300,
+      "acc": 1.0
+    },
+    "digit_zero": {
+      "correct": 3346,
+      "total": 3346,
+      "acc": 1.0
+    },
+    "digit_five": {
+      "correct": 1824,
+      "total": 1824,
+      "acc": 1.0
+    },
+    "addition": {
+      "correct": 502,
+      "total": 502,
+      "acc": 1.0
+    },
+    "digit_nine": {
+      "correct": 1496,
+      "total": 1496,
+      "acc": 1.0
+    },
+    "digit_seven": {
+      "correct": 1113,
+      "total": 1113,
+      "acc": 1.0
+    },
+    "equals_arith": {
+      "correct": 1670,
+      "total": 1670,
+      "acc": 1.0
+    },
+    "digit_three": {
+      "correct": 2639,
+      "total": 2639,
+      "acc": 1.0
+    },
+    "digit_one": {
+      "correct": 4005,
+      "total": 4005,
+      "acc": 1.0
+    },
+    "truth_true": {
+      "correct": 787,
+      "total": 787,
+      "acc": 1.0
+    },
+    "digit_eight": {
+      "correct": 946,
+      "total": 946,
+      "acc": 1.0
+    },
+    "truth_false": {
+      "correct": 779,
+      "total": 779,
+      "acc": 1.0
+    },
+    "digit_two": {
+      "correct": 3343,
+      "total": 3343,
+      "acc": 1.0
+    },
+    "subtraction": {
+      "correct": 504,
+      "total": 504,
+      "acc": 1.0
+    },
+    "sign_neg": {
+      "correct": 214,
+      "total": 214,
+      "acc": 1.0
+    },
+    "multiplication": {
+      "correct": 450,
+      "total": 450,
+      "acc": 1.0
+    },
+    "power": {
+      "correct": 60,
+      "total": 60,
+      "acc": 1.0
+    },
+    "root": {
+      "correct": 60,
+      "total": 60,
+      "acc": 1.0
+    },
+    "differential": {
+      "correct": 20,
+      "total": 20,
+      "acc": 1.0
+    },
+    "logarithm": {
+      "correct": 20,
+      "total": 20,
+      "acc": 1.0
+    },
+    "tetration": {
+      "correct": 8,
+      "total": 8,
+      "acc": 1.0
+    },
+    "super_root": {
+      "correct": 6,
+      "total": 6,
+      "acc": 1.0
+    },
+    "logical_and": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_or": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_not": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_imply": {
+      "correct": 36,
+      "total": 36,
+      "acc": 1.0
+    },
+    "logical_iff": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_xor": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_nand": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_nor": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "logical_xnor": {
+      "correct": 12,
+      "total": 12,
+      "acc": 1.0
+    },
+    "super_log": {
+      "correct": 37,
+      "total": 40,
+      "acc": 0.925
+    }
+  },
+  "train_acc": 0.9966522104984132,
+  "crash_culprit": {
+    "super_log": 9
+  }
+}
