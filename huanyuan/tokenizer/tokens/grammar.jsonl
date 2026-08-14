@@ -1,0 +1,33 @@
+{"eid": "G:0", "name": "atom", "definition": {"form": "explicit", "rules": [{"term": []}], "references": []}}
+{"eid": "G:1", "name": "application", "definition": {"form": "explicit", "rules": [{"term": ["fn", "args"]}], "references": []}}
+{"eid": "G:2", "name": "equality", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}}
+{"eid": "G:3", "name": "binary_connective", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}}
+{"eid": "G:4", "name": "unary_connective", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}], "references": []}}
+{"eid": "G:5", "name": "quantified", "definition": {"form": "explicit", "rules": [{"term": ["binder", "body"]}], "binding_arity": [0, 1], "references": []}}
+{"eid": "G:6", "name": "eos", "definition": {"form": "explicit", "rules": [{"term": []}], "references": []}}
+{"eid": "G:7", "name": "ski_i", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}], "references": []}, "reduction": {"pattern": ["arg:0"], "value": "arg:0"}}
+{"eid": "G:8", "name": "ski_k", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}, "reduction": {"pattern": ["arg:0", "arg:1"], "value": "arg:0"}}
+{"eid": "G:9", "name": "ski_s", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1", "arg:2"]}], "references": []}, "reduction": {"pattern": ["arg:0", "arg:1", "arg:2"], "value": [["arg:0", "arg:2"], ["arg:1", "arg:2"]]}}
+{"eid": "G:10", "name": "variable_reference", "definition": {"form": "explicit", "rules": [{"term": []}], "references": []}}
+{"eid": "G:11", "name": "facet_spec", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1", "arg:2", "arg:3", "arg:4"]}], "references": []}}
+{"eid": "G:12", "name": "numeral_seq", "definition": {"form": "explicit", "rules": [{"term": ["args"]}], "references": []}}
+{"eid": "G:13", "name": "arrow", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}}
+{"eid": "G:14", "name": "fraction", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}]}}
+{"eid": "G:15", "name": "radical", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}]}}
+{"eid": "G:16", "name": "grouping", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}]}}
+{"eid": "G:17", "name": "composition", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}]}}
+{"eid": "G:18", "name": "functor", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}]}}
+{"eid": "G:19", "name": "natural_transformation", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}]}}
+{"eid": "G:20", "name": "isomorphism", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}]}}
+{"eid": "G:21", "name": "inverse", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}]}}
+{"eid": "G:22", "name": "judgment", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}]}}
+{"eid": "G:23", "name": "fill_expr", "definition": {"form": "explicit", "rules": [{"term": ["D:188", "arg:0", "arg:1", "D:184", "D:102", "arg:2"]}], "references": ["D:188", "D:184", "D:102"]}}
+{"eid": "G:24", "name": "choose_expr", "definition": {"form": "explicit", "rules": [{"term": ["D:188", "arg:0", "arg:1", "D:184", "D:102", "arg:2", "D:191", "args:3"]}], "references": ["D:188", "D:184", "D:102", "D:191"]}}
+{"eid": "G:25", "name": "numeral_expr", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}}
+{"eid": "G:26", "name": "representation_group", "definition": {"form": "explicit", "rules": [{"term": ["arg:0"]}], "references": []}}
+{"eid": "G:27", "name": "sign_part", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1", "arg:2"]}], "references": []}}
+{"eid": "G:28", "name": "base_expr", "definition": {"form": "explicit", "rules": [{"term": ["fn", "arg:0"]}], "references": []}}
+{"eid": "G:29", "name": "digit_seq", "definition": {"form": "explicit", "rules": [{"term": ["args"]}], "references": []}}
+{"eid": "G:30", "name": "digit_expr", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "arg:1"]}], "references": []}}
+{"eid": "G:31", "name": "place_expr", "definition": {"form": "explicit", "rules": [{"term": ["fn", "arg:0"]}], "references": []}}
+{"eid": "G:32", "name": "iterate_expr", "definition": {"form": "explicit", "rules": [{"term": ["arg:0", "fn", "arg:1", "arg:2"]}], "references": []}}
