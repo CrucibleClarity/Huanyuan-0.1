@@ -1,0 +1,19 @@
+{
+  "name": "add_place_gen",
+  "seed": 0,
+  "synth": {
+    "samples": [
+      {"kind": "balanced", "op": "addition", "hi": 9, "max_depth": 2, "neg_mode": 1},
+      {"kind": "definition", "op": "logical_and"},
+      {"kind": "arrow", "concept": "succ"}
+    ]
+  },
+  "train": {"epochs": 15, "dim": 64, "layers": 2},
+  "verify": {
+    "ood": [
+      {"op": "addition", "digits": 5, "n": 100, "mode": "mixed"},
+      {"op": "addition", "digits": 10, "n": 100, "mode": "mixed"},
+      {"op": "addition", "digits": 20, "n": 100, "mode": "mixed"}
+    ]
+  }
+}
