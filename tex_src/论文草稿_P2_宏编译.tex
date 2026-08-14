@@ -1,0 +1,191 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{论文草稿 P2 --- Neural Macro Compilation (Shortcut
+Compilation)}\label{ux8bbaux6587ux8349ux7a3f-p2-neural-macro-compilation-shortcut-compilation}
+
+\begin{quote}
+版本: 骨架 v0.1 \textbar{} 日期: 2026-08-11 \textbar{} 核心内容已在 P1
+§6 覆盖, 独立成篇作工程/方法论文。
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. Introduction}\label{introduction}
+
+\begin{itemize}
+\tightlist
+\item
+  问题: 新算符/新结构已可由组合路径执行, 但路径长 (推理成本高:
+  steps/tokens/latency/KV)。
+\item
+  现有方案: 蒸馏 (teacher→student)、few-shot 微调、程序→神经代理
+  (Learning to Compile Programs to Neural Networks, ICML 2024) ---
+  都引入新参数/新语义/外部 teacher。
+\item
+  本文: \textbf{同一模型}的慢路径 → 快路径自蒸馏, 不扩语义闭包, 可验证,
+  有 fallback。
+\end{itemize}
+
+\subsection{2. Setting}\label{setting}
+
+\begin{itemize}
+\tightlist
+\item
+  慢路径 (构造通道): 定义驱动展开执行, 语义完整, 成本高。
+\item
+  快路径 (直觉通道): 编译进权重的直接执行。
+\item
+  目标: Sem\_fast(σ) = Sem\_expanded(T\_σ), Cost\_fast ≪
+  Cost\_expanded。
+\end{itemize}
+
+\subsection{3. Method (semantic-path
+self-distillation)}\label{method-semantic-path-self-distillation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  路径识别: 新算符 σ 沿定义链展开为已有基础操作组合 (E(σ) = T\_σ)。
+\item
+  样本生成: 用慢路径 (构造通道/oracle) 自动生成 (σ, x\_i, y\_i), 少量。
+\item
+  参数更新: 快路径建立 (embeddings/adapter/部分权重/全模型 ---
+  依赖梯度从宽到窄)。
+\item
+  语义等价验证: 快路径输出 vs 慢路径输出全序列一致 (验证器)。
+\item
+  fallback: 验证失败走慢路径; 运行时按 execution-cost threshold 路由。
+\end{enumerate}
+
+\subsection{4. Results}\label{results}
+
+\begin{itemize}
+\tightlist
+\item
+  十几样本编译: 新算符快路径建立, Cost 降 {[}待量化 EXP-51{]}。
+\item
+  语义闭包不变: 快路径可执行输入集 = 慢路径可执行输入集 (EXP-52)。
+\item
+  一致性: 快/慢输出一致率 (EXP-50 三通道之一)。
+\end{itemize}
+
+\subsection{5. Ablations}\label{ablations}
+
+\begin{itemize}
+\tightlist
+\item
+  样本量: 10/20/50 对编译质量影响。
+\item
+  更新范围: embeddings-only vs adapter vs 全模型 (原能力保护)。
+\item
+  无验证器: 无 fallback 时错误传播。
+\end{itemize}
+
+\subsection{6. Related Work}\label{related-work}
+
+\begin{itemize}
+\tightlist
+\item
+  Program→NN compilation (ICML 2024) / inference compilation / shortcut
+  distillation (diffusion): 区别 = 同模型自蒸馏 + 语义闭包不变 + 验证器
+  fallback。
+\end{itemize}
+
+\subsection{7. Limitations}\label{limitations}
+
+\begin{itemize}
+\tightlist
+\item
+  仅适用已有组合路径可执行的结构 (不学习新语义)。
+\item
+  编译质量依赖慢路径正确性。
+\end{itemize}
+
+\subsection{专利对应}\label{ux4e13ux5229ux5bf9ux5e94}
+
+\begin{itemize}
+\tightlist
+\item
+  M1: 基于已有组合执行能力建立语义等价快速执行路径的方法
+  (独立权利要求骨架见 权利要求设计报告\_G1 / 其他AI意见.md)。
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{结论 (统一框架, 2026-08-11
+定稿)}\label{ux7ed3ux8bba-ux7edfux4e00ux6846ux67b6-2026-08-11-ux5b9aux7a3f}
+
+当我们在统一的形式化注意力语法结构下, 最终不可避免地、必然地通过神经网络
+清晰、直观、可解释地观察到直觉与构造的边界时, 我们就可以有充足的信心:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{用统一的注意力形式语言指导逻辑构造} (形式→构造: 注意力定位
+  token 间关系; 形式 ↔ 注意力 attention);
+\item
+  \textbf{用精确的合成 CoT 逻辑构造获得 flashing 直觉} (构造→直觉:
+  合成思维链 编译为快速推理; 构造 ↔ 合成思维链 synthetic CoT);
+\item
+  \textbf{用蒸馏的直觉上下文穷举注意力形式} (直觉→形式:
+  蒸馏快路径搜索组合, 再表达于统一形式; 直觉 ↔ 蒸馏的闪念 distilled
+  intuition / flashing).
+\end{itemize}
+
+形式、构造、直觉在统一的框架下相互适配,
+组成再不分彼此的教学、训练、推理的 反馈迭代管线 --- 这也许是我们通往 ASI
+的众多路径中, 相对较快的一条捷径。
+
+\end{document}
